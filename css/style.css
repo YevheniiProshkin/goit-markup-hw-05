@@ -784,7 +784,11 @@ img {
   top: 0;
   background-color: rgba(0, 0, 0, 0.2);
 
-  transition: var(--timing-color-fon-shadow);
+  transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden .modal {
+  transform: scale(0.5) rotate(90deg);
 }
 
 .modal {
@@ -793,7 +797,8 @@ img {
   min-height: 581px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transition: transform 300ms;
+  transform: translate(-50%, -50%) scale(1) rotate(0);
   background: #ffffff;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
