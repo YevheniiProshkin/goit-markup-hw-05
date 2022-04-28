@@ -3,6 +3,7 @@
   --footer-link-mail-color: #2196f3;
   --all-title-color: #212121;
   --all-text-color: #757575;
+  --timing-color-fon-shadow: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -61,9 +62,8 @@ img {
 }
 
 .header .container {
-  padding-top: 24px;
-  padding-bottom: 25px;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -96,12 +96,14 @@ img {
 }
 
 .header-link {
+  position: relative;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: #212121;
   display: block;
+  padding: 32px 0;
 }
 
 .header-list-contacts {
@@ -115,6 +117,19 @@ img {
 
 .current {
   color: #2196f3;
+}
+
+.current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: #2196f3;
+  border-radius: 2px;
+  opacity: 1;
 }
 
 .header-link:hover,
@@ -139,17 +154,21 @@ img {
   fill: #757575;
 }
 
+.header-link-mail {
+  transition: color var(--timing-color-fon-shadow);
+}
+
 .header-link-mail:hover,
 .header-link-mail:focus {
   color: #2196f3;
 }
 
 .header-link-mail:hover .header-contact-svg-mail {
-  fill: #2196f3;
+  fill: currentColor;
 }
 
 .header-link-mail:focus .header-contact-svg-mail {
-  fill: #2196f3;
+  fill: currentColor;
 }
 
 .header-link-tel {
@@ -163,17 +182,25 @@ img {
   justify-content: center;
 }
 
+.header-link-mail {
+  transition: color var(--timing-color-fon-shadow);
+}
+
+.header-link-tel {
+  transition: color var(--timing-color-fon-shadow);
+}
+
 .header-link-tel:hover,
 .header-link-tel:focus {
   color: #2196f3;
 }
 
 .header-link-tel:hover .header-contact-svg-tel {
-  fill: #2196f3;
+  fill: currentColor;
 }
 
 .header-link-tel:focus .header-contact-svg-tel {
-  fill: #2196f3;
+  fill: currentColor;
 }
 
 /* ----------------------ЗАКАЗ УСЛУГ-SERVICE----------------- */
@@ -228,6 +255,7 @@ img {
   margin-left: auto;
   padding: 10px 32px;
   border: 0;
+  transition: background-color var(--timing-color-fon-shadow);
 }
 .service-button:hover,
 .service-button:focus {
@@ -301,8 +329,29 @@ img {
   display: flex;
 }
 
+.business-item {
+  position: relative;
+}
+
 .business-item:not(:last-child) {
   margin-right: 30px;
+}
+
+.business-item-title {
+  position: absolute;
+  background: rgba(47, 48, 58, 0.8);
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  padding-top: 27px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
 }
 
 .business-title {
@@ -394,6 +443,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color var(--timing-color-fon-shadow);
 }
 
 .team-contact-svg {
@@ -434,25 +484,30 @@ img {
   justify-content: space-between;
 }
 
-.client-item {
-  padding: 16px 32px;
+.client-link {
+  display: block;
+  height: 92px;
+  width: 170px;
   border: 1px solid #afb1b8;
   box-sizing: border-box;
   border-radius: 4px;
+  transition: var(--timing-color-fon-shadow);
 }
 
 .client-logo {
+  margin: 16px 32px;
   fill: #afb1b8;
+  transition: var(--timing-color-fon-shadow);
 }
 
-.client-item:hover,
-.client-item:focus {
+.client-link:hover,
+.client-link:focus {
   fill: #2196f3;
   border: 1px solid #2196f3;
 }
 
-.client-item:hover .client-logo,
-.client-item:focus .client-logo {
+.client-link:hover .client-logo,
+.client-link:focus .client-logo {
   fill: #2196f3;
 }
 
@@ -525,9 +580,17 @@ img {
   color: rgba(255, 255, 255, 0.6);
 }
 
+.footer-link-mail {
+  transition: color var(--timing-color-fon-shadow);
+}
+
 .footer-link-mail:hover,
 .footer-link-mail:focus {
   color: #2196f3;
+}
+
+.footer-link-tel {
+  transition: color var(--timing-color-fon-shadow);
 }
 
 .footer-link-tel:hover,
@@ -571,6 +634,10 @@ img {
 
 .footer-contact-svg {
   fill: #ffffff;
+}
+
+.footer-contact-link {
+  transition: background-color var(--timing-color-fon-shadow);
 }
 
 .footer-contact-link:hover,
@@ -618,6 +685,9 @@ img {
   background: #f5f4fa;
   padding: 6px 22px;
   border: 0;
+  transition: background-color var(--timing-color-fon-shadow),
+    color var(--timing-color-fon-shadow),
+    box-shadow var(--timing-color-fon-shadow);
 }
 
 .portfolio-button:hover,
@@ -646,6 +716,7 @@ img {
   margin-bottom: 30px;
   background: #ffffff;
   border: 1px solid #eeeeee;
+  transition: box-shadow var(--timing-color-fon-shadow);
 }
 
 .portfolio-item:hover,
@@ -653,6 +724,33 @@ img {
   box-sizing: border-box;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.portfolio-item:hover .portfolio-link-text {
+  transform: translateY(0%);
+}
+
+.portfolio-link-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-link-text {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  padding: 63px 24px;
+  background: rgba(33, 150, 243, 0.9);
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+
+  color: #ffffff;
+
+  transform: translateY(100%);
+  transition: transform var(--timing-color-fon-shadow);
 }
 
 .portfolio-title {
@@ -675,4 +773,51 @@ img {
 
 .portfolio-name-projekt {
   padding: 20px 24px;
+}
+
+/* ----------------------МОДАЛЬНОЕ-ОКНО----------------- */
+
+.backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  transition: var(--timing-color-fon-shadow);
+}
+
+.modal {
+  position: absolute;
+  width: 528px;
+  min-height: 581px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  padding: 6px;
+  margin: 0;
+  border-radius: 50%;
+}
+
+.modal-logo {
+  display: block;
+}
+
+.is-hidden {
+  opacity: 0;
+  pointer-events: 0;
+  visibility: hidden;
 }
